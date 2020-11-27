@@ -1,10 +1,31 @@
 <template>
-    <header class="container-fluid d-flex justify-content-center">
-        <h1>This is my header</h1>
-    </header>
+    <div class="header container-fluid d-flex justify-content-between align-items-center py-3">
+        <h1 class="p2">Integra<span>Software</span></h1>
+        <div class="menu d-flex flex-row align-items-center">
+            <span class="username mr-2">Juanito Johns</span> 
+            <img src="../assets/profile.jpg" class="mr-2 img-fluid rounded-circle user-photo b0">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+    </div>
 </template>
 <script>
 export default {
-    name: 'header'
+    name: 'app-header'
 }
 </script>
+
+<style scoped>
+    .header {
+        background: #171B2A;
+        color: white;
+    }
+
+    .header h1 span { 
+        color: #7DF4C2!important;
+    }
+
+    img.user-photo { 
+        width: 50px;
+        height: 50px;
+    }
+</style>

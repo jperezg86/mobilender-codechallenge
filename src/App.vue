@@ -1,19 +1,18 @@
 <template>
-  <div id="app" class="container-fluid">
+  <div id="app" class="container-fluid p-0">
     <Header />
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/HeaderComponent.vue'
 
 export default {
   name: 'App',
   components: {
-     HelloWorld,
+    //  HelloWorld,
      Header
   }
 }
@@ -27,4 +26,10 @@ export default {
   color: #ffffffff;
   background: #000;
 }
+
+button.btn.btn-primary{
+  background-color:  #7DF4C2;
+  color: #000;
+  border-color: transparent!important;
+};
 </style>

@@ -8,6 +8,7 @@
             </div>
             <div class="card-body">
                 <form>
+                    <div class="text-warning" v-if="errors">{{errors.loginFail || ''}}</div>
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" 
@@ -30,21 +31,36 @@
     </div> 
 </template>
 <script>
-
-import * as ApiService from '../services/api'
+import { mapGetters } from 'vuex'
 
 export default {
     data: () => {
         return {
             username : 'eve.holt@reqres.in',
-            password : ''
+            password : '',
         }
     },
 
+
+    computed : {
+        ...mapGetters([
+            'session',
+            'errors'
+        ])
+    },
+
     methods: {
-        async logIn() {
-          console.log(await ApiService.login(this.username, this.password))
+        logIn() {
+            this.$store.dispatch('login',{ username: this.username, password : this.password})
         }
+    },
+
+    watch : {
+        session(session) {
+            if(session){
+                this.$router.replace('/')
+            }
+        },
     }
 }
 </script>

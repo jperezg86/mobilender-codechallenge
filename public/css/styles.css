@@ -2,3 +2,18 @@
     font-family: 'Avenir Next';
     src: url('../fonts/AvenirNextLTPro-Regular.otf');
 }
+
+body {
+    font-family: 'AvenirNextLTPro-Regular';
+}
+
+.btn.btn-outline-primary {
+    border-color: #7DF4C2;
+    color: white;
+}
+
+.btn.btn-outline-primary:hover {
+    background-color: black!important;
+    color: white;
+    border-color: #7DF4C2;
+}

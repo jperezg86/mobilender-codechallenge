@@ -14,13 +14,15 @@
         </div>
         <ul class="list container px-5">
             <li class="my-3 p-2 align-items-md-center" v-for="(item,index) in softwares" v-bind:key="item._id">
-                <a class="container d-flex flex-row justify-content-between text-decoration-none align-items-center" >
+                <router-link v-bind:to="'/creditos-grupales'" class="container d-flex flex-row justify-content-between text-decoration-none align-items-center">
                     <span class="index p-2 flex-grow-0 mr-3">{{ (index+1) | zeroized}} </span>
                     <span class="list-item-title flex-grow-1 ">{{item.name}}</span>
                     <span class="flex-grow-1 list-item-subtitle">{{item.category}}</span>
-                   <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </router-link>
+                <!-- <a class="" >
+                   
+                </a> -->
             </li>
         </ul>
     </div>
@@ -36,33 +38,14 @@ export default {
     },
 
     created() {
-        if(!this.session){
-            this.$router.replace('/login')
+        if(!this.softwares) {
+            this.$store.dispatch('getSoftwaresFromAPI')
         }
-        else {
-            if(!this.softwares) {
-                this.$store.dispatch('getSoftwaresFromAPI')
-            }
-        }
-
-        
     }
 }
 </script>
 
 <style scoped>
-    .list-header {
-        border-bottom: 1px solid #272A31;
-    }
+   
     
-    .list-header i { color: #7DF4C2 }
-    .list-header h3 { font-size: 16pt; padding-top: 0.3em; font-weight:900;}
-    .list-header .btn { text-transform: uppercase; font-size: 10pt;}
-
-    .list li{ list-style: none; color: white; background: #171925; border-radius:8px;}
-    .list li a{color: white; cursor: pointer;} 
-    .list li a .list-item-title{font-weight: 600; font-size: 1.3em;}
-    .list li a .list-item-subtitle { color: #9EA2AD; font-size: 0.8em; }
-    .list li a  i { font-size: 1.5em;}
-    .list .index { border: 1px solid #7DF4C2; color: white; font-weight: 500; font-size: 1.2em; }
 </style>

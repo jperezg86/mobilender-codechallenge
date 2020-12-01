@@ -17,3 +17,14 @@ body {
     color: white;
     border-color: #7DF4C2;
 }
+.list li a .list-item-title{font-weight: 600; font-size: 1.3em;}
+.list li a .list-item-subtitle { color: #9EA2AD; font-size: 0.8em; }
+.list li a  i { font-size: 1.5em;}
+.list-header { border-bottom: 1px solid #272A31;}
+.list-header i { color: #7DF4C2; }
+.list-header h3 { font-size: 16pt; padding-top: 0.3em; font-weight:900;}
+.list-header .btn { text-transform: uppercase; font-size: 10pt;}
+.list li{ list-style: none; color: white; background: #171925; border-radius:8px;}
+.list li a{color: white; cursor: pointer; text-decoration: none;} 
+.list .index { border: 1px solid #7DF4C2; color: white; font-weight: 500; font-size: 1.2em; } 
+div.table-header {font-size: 0.8em;color: #92959c;}

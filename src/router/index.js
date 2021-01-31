@@ -4,11 +4,13 @@ import Home from '../components/HomeComponent'
 import Login from '../components/LoginComponent'
 import CreditosGrupales from '../components/CreditosGrupalesComponent'
 import ControlCambios from '../components/ControlCambios'
+import Test from '../components/TestComponent'
 
 Vue.use(VueRouter)
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
+    { path: '/test', name: 'Test', component: Test },
     { path: '/login', name: 'Login', component: Login },
     { path: '/creditos-grupales', 
         name: "Creditos Grupales", 
@@ -28,6 +30,11 @@ const router  = new VueRouter({
  * Router Guard, useful to check if the session is enabled.
  */
 router.beforeEach((to, from, next)=> {
+    if(to.path== '/test') {
+        next(); 
+        return; 
+    }
+
     //check if the session exist on the local storage
     const session = JSON.parse(localStorage.getItem('session'))
     if(!session && to.path !== '/login'){
